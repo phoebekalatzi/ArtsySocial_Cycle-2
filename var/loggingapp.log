@@ -24661,3 +24661,5 @@ INFO | 2017-10-27 10:29:57,869 | index | stream | phoebe viewed his/her Stream s
 INFO | 2017-10-27 10:30:05,338 | index | post | phoebe created a new post on his/her post feed section /new_post
 INFO | 2017-10-27 10:30:10,994 | index | post | phoebe created a new post on his/her post feed section /new_post
 INFO | 2017-10-27 10:30:11,056 | index | root | phoebe was redirected to the root page  /
+INFO | 2017-10-27 11:02:26,648 | index | login | Someone visited the Login page /login
+INFO | 2017-10-27 11:07:25,840 | index | login | Someone visited the Login page /login

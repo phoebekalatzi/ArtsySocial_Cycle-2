@@ -1,4 +1,4 @@
-import ConfigParser
+import configparser
 import logging
 import warnings
 
@@ -283,7 +283,7 @@ def logout():
 # parsing configuration details from an external file
 
 def init (app):
-  config = ConfigParser.ConfigParser()
+  config = configparser.ConfigParser()
   try:
     config_location = "etc/defaults.cfg"
     config.read(config_location)
@@ -298,7 +298,7 @@ def init (app):
     app.config['log_level'] = config.get("logging", "level")
 
   except:
-    print "Could not read configuration file from: " , config_location
+    print ("Could not read configuration file from: ") , config_location
 
 
 # setting up a logging feature to record action logs into a text file    
