@@ -1,0 +1,101 @@
+#username,#email,#password,#password2 {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	line-height: 30px;
+}
+
+img.img-responsive {
+  width:350px;
+  height:250px;
+}
+
+img.avatar {
+  width:120px;
+  height:170px;
+}
+
+img.logo {
+  width:120px;
+  height:120px;
+  margin-top:-50px;
+}
+
+header .container {
+    padding-top:120px;
+    padding-bottom:50px;
+    }
+
+header, section#about.success, #portfolio .portfolio-item .portfolio-link
+.caption { 
+    background:#2C3E50;
+ }
+
+a.portfolio-link, a, a.active , a:active, a:focus {
+  color:#ACAEE8;
+}
+
+hr.star-light:after {
+  background-color:#ACAEE8;
+}
+
+.navbar-custom, footer .footer-above  {
+  background:#222222;
+}
+
+footer .footer-above,{
+  background-color:#222222;
+}
+
+ul.logo-nav li{
+  display:inline-block;
+}
+
+input[type="text"], input[type="password"], textarea, textarea.form-control {
+    border:1px solid #555;
+    height:100px;
+}
+
+a.admiring {
+  padding-left:5%;
+}
+
+a.create {
+  padding-left:50%;
+}
+
+.users-nav ul li {
+  display:inline-block;
+  padding-right:40px;
+  padding-top:20px;;
+}
+
+.grid-50 div {
+  display:inline-block;
+  padding-right:35px;
+}
+
+#err-section {
+    height:300px;
+    background:white;
+    margin-top:80px;
+}
+
+div.form-bottom {
+    padding:0px;
+}
+
+.stats-row div {
+  display:inline-block;
+  padding:15px;
+}
+
+.stats-row .btn {
+  width:100px;
+  color:black;
+}
+
+.flashes {
+    background:#18BC9C;
+    color:black;
+}
+

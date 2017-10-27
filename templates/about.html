@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<!-- About Section -->
+<section class="container" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>About</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+      {% if (user.username) %}
+            <div class="row">
+               <div class="col-lg-4 col-lg-offset-2">
+                    <p> {{user.username}} quo te scripta facilisis, vix nonumy patrioque at. Pro
+                    populo aeterno lobortis ea, an rationibus deseruisse quo.
+                    Eos nullam eleifend ad, cetero philosophia vix id, eu erant
+                    scripta suscipiantur vix. Ne sit option viderer. Per
+                    inciderint dissentiunt et, sed nulla legimus ne, at dolores
+                    eleifend persecuti sed..</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Vel nobis appetere te, quodsi facilisi per id. Eius
+                    error ea pro. Possit vulputate te eos. No sea virtute
+                    singulis, sed id nihil debitis pertinacia, nam repudiare
+                    reprehendunt no.</p>
+                </div> 
+           </div>
+        {% else %}
+             <div class="row">
+               <div class="col-lg-4 col-lg-offset-2">
+                    <p> {{current_user.username}} quo te scripta facilisis, vix nonumy patrioque at. Pro
+                    populo aeterno lobortis ea, an rationibus deseruisse quo.
+                    Eos nullam eleifend ad, cetero philosophia vix id, eu erant
+                    scripta suscipiantur vix. Ne sit option viderer. Per
+                    inciderint dissentiunt et, sed nulla legimus ne, at dolores
+                    eleifend persecuti sed..</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Vel nobis appetere te, quodsi facilisi per id. Eius
+                    error ea pro. Possit vulputate te eos. No sea virtute
+                    singulis, sed id nihil debitis pertinacia, nam repudiare
+                    reprehendunt no.</p>
+                </div> 
+           </div>
+        {% endif %}
+
+        </div>
+    </section>
+
+    {% endblock %}
+
