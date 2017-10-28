@@ -51,6 +51,8 @@ def before_request():
 @app.after_request
 def after_request(response):
   g.db.close()
+  response.headers["X-XSS-Protection"] = "1; mode=block"
+  response.headers["X-Content-Type-Options"] = "nosniff"
   return response
 
 
