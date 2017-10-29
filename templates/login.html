@@ -17,7 +17,7 @@
                             </div>
                             <div class="form-bottom">
 			                    <form role="form" action="" method="post" class="login-form">
-                      <form method="POST" action="" class="form">
+                      <form method="POST" action="" class="form" autocomplete="off">
                       {{ form.hidden_tag() }}
                       {% for field in form %}
                       {{ render_field(field) }}
