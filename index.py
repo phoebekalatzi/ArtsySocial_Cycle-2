@@ -53,6 +53,10 @@ def after_request(response):
   g.db.close()
   response.headers["X-XSS-Protection"] = "1; mode=block"
   response.headers["X-Content-Type-Options"] = "nosniff"
+  response.headers["Content-Security-Policy"] = "default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com  http://fonts.gstatic.com  http://fonts.googleapis.com   'nonce-3435fd45ds3454' ; \
+                                              style-src 'self' 'unsafe-inline'  http://fonts.googleapis.com   https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com ;  \
+                                                script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com "
+
   return response
 
 
