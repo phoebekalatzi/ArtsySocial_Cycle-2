@@ -56,7 +56,7 @@ def after_request(response):
   response.headers["Content-Security-Policy"] = "default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com  http://fonts.gstatic.com  http://fonts.googleapis.com ; \
                                                  style-src 'self'  http://fonts.googleapis.com   https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com ;  \
                                                  script-src 'self'  https://cdnjs.cloudflare.com "
-
+  response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
   return response
 
 
