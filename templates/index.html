@@ -19,7 +19,8 @@
         <link rel="stylesheet" href={{url_for('static',
         filename='form-3/assets/css/style.css')}}>
         <link rel="stylesheet" href={{url_for('static',
-        filename='custom.css')}}>
+        filename='css/custom.css')}}>
+
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,7 +51,7 @@
         	
       {% with messages = get_flashed_messages() %}
           {% if messages %}
-          <div class=flashes style="background:#18BC9C; color:black;">
+          <div class="flashes">
              {% for message in messages %}
                 <p>{{ message }}</p>
              {% endfor %}

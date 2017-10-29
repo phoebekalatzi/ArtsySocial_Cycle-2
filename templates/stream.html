@@ -2,8 +2,7 @@
 
 {% block content %}
 {% for post in stream %}
-  <article class="stream-posts" style="text-align:left; padding-top:20px;
-  border-style: outset;">
+  <article class="stream-posts">
     <h5>
       <a href="{{url_for('stream', username = post.user.username) }}">
       {{post.user.username }}</a>

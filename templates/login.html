@@ -3,6 +3,7 @@
 
 {% block content %}
 
+
                 <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
@@ -14,7 +15,7 @@
                         			<i class="fa fa-lock"></i>
                         		</div>
                             </div>
-                            <div class="form-bottom" style="padding-top:0px;">
+                            <div class="form-bottom">
 			                    <form role="form" action="" method="post" class="login-form">
                       <form method="POST" action="" class="form">
                       {{ form.hidden_tag() }}
@@ -22,7 +23,7 @@
                       {{ render_field(field) }}
                       {% endfor %}   
                        <button type="submit" id="submit" class="btn">Sign in!</button>
-                       <p><a style="color:white;" href="{{url_for('register')}}"><u>Not register yet? Click
+                       <p id="not-reg"><a href="{{url_for('register')}}"><u>Not register yet? Click
                        here</u></a></p>
                        </form>  
 			                  	</form>

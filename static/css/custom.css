@@ -1,8 +1,3 @@
-#username,#email,#password,#password2 {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	line-height: 30px;
-}
 
 img.img-responsive {
   width:350px;
@@ -50,7 +45,12 @@ ul.logo-nav li{
   display:inline-block;
 }
 
-input[type="text"], input[type="password"], textarea, textarea.form-control {
+input[type="text"], input[type="password"] {
+    border:1px solid #555;
+    height:50px;
+}
+
+ textarea, textarea.form-control {
     border:1px solid #555;
     height:100px;
 }
@@ -99,3 +99,51 @@ div.form-bottom {
     color:black;
 }
 
+h3 #404 {
+    position:absolute;
+    left:320px;
+    top:175px;
+    width:auto;
+height:210px;
+}
+
+div #By {
+    position:absolute;
+    left:285px;
+    top:235px;
+    width:210px;
+    height:210px;
+}
+
+div #Bn {
+    position:absolute;
+    left:360px;
+    top:235px;
+    width:210px;
+    height:210px;
+}
+
+p #not-reg a {
+    color:white;
+}
+
+#username,#email,#password,#password2 {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	line-height: 30px;
+}
+
+div.form-bottom {
+    padding-top:0px;
+}
+
+div.flashes {
+    background:#18BC9C;
+    color:black;
+}
+
+article.stream-posts {
+    text-align:left;
+    padding-top:20px;
+    border-style: outset;
+}

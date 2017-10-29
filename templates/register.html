@@ -13,7 +13,7 @@
                         			<i class="fa fa-lock"></i>
                         		</div>
                             </div>
-                            <div class="form-bottom" style="padding-top:0px;">
+                            <div class="form-bottom">
 			                 <form role="form" action="" method="post" class="login-form">
                           <form method="POST" action="" class="form">
                           {{ form.hidden_tag() }}
@@ -21,7 +21,7 @@
                           {{ render_field(field) }}
                           {% endfor %}   
                           <button type="submit" id="submit" class="btn">Register</button>
-                          <p><a style="color:white;" href="{{
+                          <p><a href="{{
                           url_for('login')}}"><u>Already have an account? Click
                           here</u></a></p>
                           </form>  

@@ -3,35 +3,7 @@
 <title>ArtsySocial</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="copyright" content="http://www.javascriptbank.com" />
-<script type="text/javascript" nonce="3435fd45ds3454">
 
-flag=1
-function f1()
-{
-    alert("Then you're on your own...Good luck with that!")
-}
-function f()
-{
-  if(flag==1)
-  {
-      Bn.style.top=90
-      Bn.style.left=500
-      flag=2
-  }
-  else if(flag==2)
-  {
-      Bn.style.top=90
-      Bn.style.left=50
-      flag=3
-   }
-  else if(flag==3)
-  {
-      Bn.style.top=235
-      Bn.style.left=360
-      flag=1
-      }
-  }
-  </script>
 
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -78,6 +50,9 @@ function f()
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Importing our custom Javacript -->
+    <script src={{url_for('static', filename='js/custom.js')}}></script>
 
 </head>
 <body>
@@ -139,15 +114,12 @@ function f()
                 <p>Oops you did it again! Wrong path pal... </p>
                  
   
-<h3 style="position:absolute; left:320px; top:175px; width:auto;
-height:210px;"> Need some help?</h3>
-<div id="By" style="position:absolute;left:285px; top:235px; width:210px;
-height:210px;">
-  <input type="button" value=" No " onclick="f1()" />
+<h3 id="404"> Need some help?</h3>
+<div id="By" >
+  <input id="Iy" type="button" value=" No " onclick="f1()" />
   </div>
-  <div id="Bn" style="position:absolute;left:360px; top:235px; width:210px;
-  height:210px;">
-    <input type="button" value=" Yes " onmouseover="f()" />
+  <div id="Bn">
+    <input id="In" type="button" value=" Yes " onmouseover="f()" />
     </div>
 
 
