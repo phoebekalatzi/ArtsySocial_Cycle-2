@@ -29,6 +29,7 @@ app.secret_key = 'sefdewfewr43r535rewfwda!'
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
+login_manager.anonymous_user = models.Anonymous
 
 @login_manager.user_loader
 def load_user(userid):
@@ -57,6 +58,9 @@ def after_request(response):
                                                  style-src 'self'  http://fonts.googleapis.com   https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com ;  \
                                                  script-src 'self'  https://cdnjs.cloudflare.com "
   response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+  response.headers["CacheControl"] = "nostore, nocache, mustrevalidate"
+  response.headers["CacheControl"] = "postcheck=0, precheck=0, false"
+  response.headers["Pragma"] = "nocache"
   return response
 
 
@@ -128,23 +132,29 @@ def post(username=None):
     models.Post.create(user=g.user._get_current_object(),
                       content=form.content.data.strip())
     flash("Message posted!", "success")
-    return redirect(url_for('root'))
+    return redirect(url_for('redirection'))
   return render_template('post.html', form=form, user=user)  
 
-
-# the user is redirected to the root page after posting a new message and can
-# view their recent posts on the post feed section
-
-@app.route("/")
-def root(username=None):
+# new redirect route after posting a new message
+@app.route("/message_posted")
+def redirection(username=None):
   if username and username != current_user.username:
     user = models.User.select().where(models.User.username**username).get()
   else:
     user = current_user
-  this_route = url_for('.root')
-  app.logger.info(current_user.username + " was redirected to the root page  " + this_route)
+  this_route = url_for('.redirection')
+  app.logger.info(current_user.username + " was redirected to the redirection page  " + this_route)
   stream = models.Post.select().limit(100)
   return render_template('stream.html',user=user, stream=stream)
+
+# user is redirected to login page when is not authenticated or to his/her
+# personal profile page when authenticated
+@app.route("/")
+def root(username=None):
+  if models.Anonymous.username != current_user.username :
+    return redirect(url_for('profile'))
+  else:
+    return redirect(url_for('login'))
 
 
 # routing to the posts stream section

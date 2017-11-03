@@ -13,7 +13,7 @@ throwaway = datetime.datetime.strptime('20110101','%Y%m%d')
 
 
 from flask.ext.bcrypt import generate_password_hash
-from flask.ext.login import UserMixin
+from flask.ext.login import UserMixin, AnonymousUserMixin
 from peewee import *
 
 DATABASE = SqliteDatabase('var/updated-social.db')
@@ -71,6 +71,10 @@ class User(UserMixin, Model):
               is_admin=admin)
       except IntegrityError:
         raise ValueError("User already exists")
+
+class Anonymous(AnonymousUserMixin):
+    username = u"Anonymous"
+
 
 # new Post class to save user posts
 class Post(Model):
