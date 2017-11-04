@@ -14,17 +14,38 @@ from flask.exthook import ExtDeprecationWarning
 warnings.simplefilter('ignore', ExtDeprecationWarning)
 
 # other essential imports
+import base64
+from os import urandom
+from flask_wtf.csrf import CSRFProtect
 
 from logging.handlers import RotatingFileHandler
-from flask import (Flask, url_for, g, render_template, flash, redirect, abort)
+from flask import (Flask, url_for, g, render_template, flash, redirect, abort, session)
+from flask.ext.session import Session
 from flask.ext.bcrypt import check_password_hash
 from flask.ext.login import (LoginManager, login_user, logout_user,
                              login_required, current_user)
+
 import models
 import forms
 
 app = Flask(__name__)
-app.secret_key = 'sefdewfewr43r535rewfwda!'
+
+app.secret_key = '\xbf\xc0\xc7\x89g\x1a\xf6\xbb\xfai\xd3\x1e\xe2\x1f`\x82\xed\x14\x85U\xe1Un['
+#app.WTF_CSRF_SECRET_KEY = '-\x9f\xcd\x89\x080\x88qH(\x89\xc0\x94-\xb1\xb4<m\xce\x80\xec\xfa\xac\xfb'
+
+#csrf = CSRFProtect()
+sess = Session()
+
+#app.config['WTF_CSRF_SSL_STRICT'] = True
+#app.config['WTF_CSRF_SECRET_KEY'] = base64.b64encode(urandom(128))
+app.config['SESSION_COOKIE_NAME'] = 'artscl'
+app.config['SESSION_COOKIE_PATH'] = '/'
+
+app.config['SESSION_COOKIE_SECURE'] = True
+
+app.config['SESSION_COOKIE_HTTPONLY'] = True
+
+app.config['PERMANENT_SESSION_LIFETIME'] = 3600
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -308,6 +329,8 @@ def init (app):
     app.config['ip_address'] = config.get("config", "ip_address")
     app.config['port'] = config.get("config", "port")
     app.config['url'] = config.get("config", "url")
+    # added ssl_context argument directly into the app.run function
+    #  app.config['ssl_context'] = config.get("config","ssl_context")
 
     app.config['log_file'] = config.get("logging", "name")
     app.config['log_location'] = config.get("logging", "location")
@@ -342,6 +365,9 @@ def not_found(error):
 
 if __name__ == "__main__":
   init(app)
+  app.config['SESSION_TYPE'] = 'filesystem'
+  sess.init_app(app)
+  # csrf.init_app(app)
   logs(app)
   models.initialize()
   try:
@@ -355,5 +381,7 @@ if __name__ == "__main__":
   except ValueError:
     pass
   app.run(
-    host = app.config['ip_address'],
-    port = int(app.config['port']))
+           host = app.config['ip_address'],
+           port = int(app.config['port']),
+           ssl_context = 'adhoc',
+           debug = app.config['DEBUG'])
