@@ -18,6 +18,7 @@ import base64
 from os import urandom
 from flask_wtf.csrf import CSRFProtect
 
+from datetime import timedelta
 from logging.handlers import RotatingFileHandler
 from flask import (Flask, url_for, g, render_template, flash, redirect, abort, session)
 from flask.ext.session import Session
@@ -45,11 +46,10 @@ app.config['SESSION_COOKIE_SECURE'] = True
 
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 
-app.config['PERMANENT_SESSION_LIFETIME'] = 3600
-
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
+login_manager.session_protection = 'strong'
 login_manager.anonymous_user = models.Anonymous
 
 @login_manager.user_loader
@@ -66,6 +66,10 @@ def before_request():
   g.db = models.DATABASE
   g.db.get_conn()
   g.user = current_user
+  # to expire session after 2 minutes
+  app.permanent_session_lifetime = timedelta(minutes=2)
+  # to renew the session at each request so that sessions time out only after inactivity
+  session.modified = True
 
 
 # to close the database connection after each request
@@ -314,6 +318,8 @@ def logout():
   app.logger.info( current_user.username + " requested to logout " + this_route)
   logout_user()
   flash("You've been logged out. Come back soon!","success")
+  # to invalidate existing session after user logout
+  session.clear()
   return redirect(url_for('login'))
 
 
