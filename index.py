@@ -66,7 +66,7 @@ def before_request():
   g.db = models.DATABASE
   g.db.get_conn()
   g.user = current_user
-  # to expire session after 2 minutes
+  # to expire session after 30 minutes
   app.permanent_session_lifetime = timedelta(minutes=30)
   # to renew the session at each request so that sessions time out only after inactivity
   session.modified = True
@@ -287,26 +287,31 @@ def register():
   return render_template('register.html', form=form) 
 
 
-# routing to the login page
+# conditional routing to the login page if current user is not authorised otherwise
+# redirection to their personal profile
 
 @app.route('/login', methods=('GET','POST'))  
 def login():
-  this_route = url_for('.login')
-  app.logger.info("Someone visited the Login page " + this_route)
-  form = forms.LoginForm()
-  if form.validate_on_submit():
-    try:
-      user = models.User.get(models.User.email == form.email.data)
-    except models.DoesNotExist:
-      flash("Your email or password doesn't match!", "error")
-    else:
-      if check_password_hash(user.password, form.password.data):
-        login_user(user)
-        flash("You've been logged in!", "success")
-        return redirect(url_for('profile'))
-      else:
+  if models.Anonymous.username != current_user.username :
+    flash("You are already logged in", "error")
+    return redirect(url_for('profile'))
+  else:
+    this_route = url_for('.login')
+    app.logger.info("Someone visited the Login page " + this_route)
+    form = forms.LoginForm()
+    if form.validate_on_submit():
+      try:
+        user = models.User.get(models.User.email == form.email.data)
+      except models.DoesNotExist:
         flash("Your email or password doesn't match!", "error")
-  return render_template('login.html', form=form)
+      else:
+        if check_password_hash(user.password, form.password.data):
+          login_user(user)
+          flash("You've been logged in!", "success")
+          return redirect(url_for('profile'))
+        else:
+          flash("Your email or password doesn't match!", "error")
+    return render_template('login.html', form=form)
 
 
 # routing to the logout page which redirects the user to the login page
