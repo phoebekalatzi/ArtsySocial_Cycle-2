@@ -67,7 +67,7 @@ def before_request():
   g.db.get_conn()
   g.user = current_user
   # to expire session after 2 minutes
-  app.permanent_session_lifetime = timedelta(minutes=2)
+  app.permanent_session_lifetime = timedelta(minutes=30)
   # to renew the session at each request so that sessions time out only after inactivity
   session.modified = True
 
