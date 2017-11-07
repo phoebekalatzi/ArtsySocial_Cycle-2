@@ -305,14 +305,14 @@ def login():
       try:
         user = models.User.get(models.User.email == form.email.data)
       except models.DoesNotExist:
-        flash("Your email or password doesn't match!", "error")
+        flash("Credentials submitted are not valid.", "error")
       else:
         if check_password_hash(user.password, form.password.data):
           login_user(user)
           flash("You've been logged in!", "success")
           return redirect(url_for('profile'))
         else:
-          flash("Your email or password doesn't match!", "error")
+          flash("Credentials submitted are not valid.", "error")
     return render_template('login.html', form=form)
 
 
