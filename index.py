@@ -15,7 +15,6 @@ warnings.simplefilter('ignore', ExtDeprecationWarning)
 
 # other essential imports
 import base64
-from os import urandom
 from flask_wtf.csrf import CSRFProtect
 
 from datetime import timedelta
@@ -29,9 +28,12 @@ from flask.ext.login import (LoginManager, login_user, logout_user,
 import models
 import forms
 
+import os
+
 app = Flask(__name__)
 
-app.secret_key = '\xbf\xc0\xc7\x89g\x1a\xf6\xbb\xfai\xd3\x1e\xe2\x1f`\x82\xed\x14\x85U\xe1Un['
+app.secret_key = os.urandom(24)
+
 #app.WTF_CSRF_SECRET_KEY = '-\x9f\xcd\x89\x080\x88qH(\x89\xc0\x94-\xb1\xb4<m\xce\x80\xec\xfa\xac\xfb'
 
 #csrf = CSRFProtect()
