@@ -1,6 +1,8 @@
 import configparser
 import logging
 import warnings
+from urllib.request import urlopen
+import json
 
 # to avoid the generation of .pyc files
 import sys
@@ -14,12 +16,11 @@ from flask.exthook import ExtDeprecationWarning
 warnings.simplefilter('ignore', ExtDeprecationWarning)
 
 # other essential imports
-import base64
 from flask_wtf.csrf import CSRFProtect
 
 from datetime import timedelta
 from logging.handlers import RotatingFileHandler
-from flask import (Flask, url_for, g, render_template, flash, redirect, abort, session)
+from flask import (Flask, url_for, g, render_template, flash, redirect, abort, session, request)
 from flask.ext.session import Session
 from flask.ext.bcrypt import check_password_hash
 from flask.ext.login import (LoginManager, login_user, logout_user,
@@ -33,6 +34,12 @@ import os
 app = Flask(__name__)
 
 app.secret_key = os.urandom(24)
+
+SITE_KEY = '6LcwIjgUAAAAAITHtx4ZdnYjga3km2PAqQpjsfSn'
+SECRET_KEY = '6LcwIjgUAAAAAPi6xUe8iQg_AaWIK-K8zLvVjLp9'
+
+#app.config['RECAPTCHA_PUBLIC_KEY'] = 'public'
+#app.config['RECAPTCHA_PRIVATE_KEY'] = 'private'
 
 #app.WTF_CSRF_SECRET_KEY = '-\x9f\xcd\x89\x080\x88qH(\x89\xc0\x94-\xb1\xb4<m\xce\x80\xec\xfa\xac\xfb'
 
@@ -81,13 +88,13 @@ def after_request(response):
   g.db.close()
   response.headers["X-XSS-Protection"] = "1; mode=block"
   response.headers["X-Content-Type-Options"] = "nosniff"
-  response.headers["Content-Security-Policy"] = "default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com  http://fonts.gstatic.com  http://fonts.googleapis.com ; \
-                                                 style-src 'self'  http://fonts.googleapis.com   https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com ;  \
-                                                 script-src 'self'  https://cdnjs.cloudflare.com "
+  #  response.headers["Content-Security-Policy"] = "default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com  http://fonts.gstatic.com  http://fonts.googleapis.com ; \
+  #                                             style-src 'self'  http://fonts.googleapis.com   https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com ;  \
+  #                                             script-src 'self'  https://cdnjs.cloudflare.com https://www.gstatic.com/recaptcha/api2/r20171109115411/recaptcha__en.js https://www.google.com/recaptcha/api.js  "
   response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
-  response.headers["CacheControl"] = "nostore, nocache, mustrevalidate"
-  response.headers["CacheControl"] = "postcheck=0, precheck=0, false"
-  response.headers["Pragma"] = "nocache"
+  response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate"
+  response.headers["Cache-Control"] = "post-check=0, pre-check=0, false"
+  response.headers["Pragma"] = "no-cache"
   return response
 
 
@@ -291,30 +298,83 @@ def register():
 
 # conditional routing to the login page if current user is not authorised otherwise
 # redirection to their personal profile
+# implementing Captcha anti-automation mechanism against authentication attacks on the login page
 
-@app.route('/login', methods=('GET','POST'))  
+counter = 0
+
+@app.route('/login', methods=('GET','POST'))
 def login():
   if models.Anonymous.username != current_user.username :
     flash("You are already logged in", "error")
     return redirect(url_for('profile'))
   else:
-    this_route = url_for('.login')
-    app.logger.info("Someone visited the Login page " + this_route)
-    form = forms.LoginForm()
-    if form.validate_on_submit():
-      try:
-        user = models.User.get(models.User.email == form.email.data)
-      except models.DoesNotExist:
-        flash("Credentials submitted are not valid.", "error")
-      else:
-        if check_password_hash(user.password, form.password.data):
-          login_user(user)
-          flash("You've been logged in!", "success")
-          return redirect(url_for('profile'))
-        else:
-          flash("Credentials submitted are not valid.", "error")
-    return render_template('login.html', form=form)
+    if counter == 3:
+        return redirect(url_for('captcha'))
+    else:
+        this_route = url_for('.login')
+        app.logger.info("Someone visited the Login page " + this_route)
+        form = forms.LoginForm()
+        if form.validate_on_submit():
+          increment()
+          try:
+            user = models.User.get(models.User.email == form.email.data)
+          except models.DoesNotExist:
+              if counter == 3:
+                return redirect(url_for('captcha'))
+              else:
+                flash("Credentials submitted are not valid.", "error")
+          else:
+            if check_password_hash(user.password, form.password.data):
+              login_user(user)
+              flash("You've been logged in!", "success")
+              return redirect(url_for('profile'))
+            else:
+              if counter == 3:
+                return redirect(url_for('captcha'))
+              else:
+                flash("Credentials submitted are not valid.", "error")
+        return render_template('login.html', form=form )
 
+# function that increments the global variable counter
+def increment():
+      global counter
+      if  counter < 3 :
+          counter += 1
+      return counter
+
+# function performing human verification to prevent brute force attacks
+@app.route('/human-verification', methods=['GET', 'POST'])
+def captcha():
+    global counter
+    msg = ''
+    showalert = False
+    if request.method == 'POST':
+        response = request.form.get('g-recaptcha-response')
+        showalert = True
+        if checkRecaptcha(response,SECRET_KEY):
+            counter = 0
+            return redirect(url_for('login'))
+        else:
+            msg='Please verify you are a human!'
+    return render_template('captcha.html',
+                           siteKey=SITE_KEY,
+                           alertMsg = msg,
+                           showAlert = showalert)
+
+# function loading Google captcha validation
+def checkRecaptcha(response, secretkey):
+    url = 'https://www.google.com/recaptcha/api/siteverify?'
+    url = url + 'secret=' + str(secretkey)
+    url = url + '&response=' + str(response)
+    try:
+        jsonobj = json.loads(urlopen(url).read())
+        if jsonobj['success']:
+            return True
+        else:
+            return False
+    except Exception as e:
+        print (e)
+        return False
 
 # routing to the logout page which redirects the user to the login page
 
