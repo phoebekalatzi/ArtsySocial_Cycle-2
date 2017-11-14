@@ -201,9 +201,6 @@ def root(username=None):
 def stream(username=None):
   template='stream.html'
   if username and username != current_user.username:
-    this_route = url_for('.stream')
-    app.logger.info(current_user.username + " viewed " + username + "'s Stream section  " 
-    + this_route)
     try:
        user = models.User.select().where(models.User.username**username).get()
     except models.DoesNotExist:
@@ -211,13 +208,15 @@ def stream(username=None):
        abort(404)
     else:  
        stream=user.posts.limit(100)
+       this_route = url_for('.stream')
+       app.logger.info(current_user.username + " viewed " + username + "'s Stream section  "
+                       + this_route)
   else:
     stream=current_user.get_stream().limit(100)
     user=current_user
     this_route = url_for('.stream')
     app.logger.info(current_user.username + " viewed his/her Stream section  " 
        + this_route)
-
   if username:
       template = 'user-stream.html'
   return render_template(template, stream=stream, user=user)    
