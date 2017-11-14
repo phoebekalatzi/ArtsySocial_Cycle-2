@@ -92,8 +92,7 @@ def after_request(response):
   #                                             style-src 'self'  http://fonts.googleapis.com   https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com ;  \
   #                                             script-src 'self'  https://cdnjs.cloudflare.com https://www.gstatic.com/recaptcha/api2/r20171109115411/recaptcha__en.js https://www.google.com/recaptcha/api.js  "
   response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
-  response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate"
-  response.headers["Cache-Control"] = "post-check=0, pre-check=0, false"
+  response.headers["Cache-Control"] = "post-check=0, pre-check=0, false, no-store, no-cache, must-revalidate"
   response.headers["Pragma"] = "no-cache"
   return response
 
@@ -117,6 +116,7 @@ def profile(username=None):
     if username:
        template = 'portfolio.html'
   except models.DoesNotExist:
+      app.logger.info("No user named " + username + " was found in the database. A 404 error was raised.")
       abort(404)
   else:    
       return render_template(template, user=user)  
@@ -141,6 +141,7 @@ def about(username=None):
      if username:
        template = 'about.html'
   except models.DoesNotExist:
+      app.logger.info("No user named " + username + " was found in the database. A 404 error was raised.")
       abort(404)
   else:
       return render_template(template, user=user)  
@@ -171,6 +172,7 @@ def post(username=None):
 
 # new redirect route after posting a new message
 @app.route("/message_posted")
+@login_required
 def redirection(username=None):
   if username and username != current_user.username:
     user = models.User.select().where(models.User.username**username).get()
@@ -195,6 +197,7 @@ def root(username=None):
 
 @app.route('/stream')
 @app.route('/stream/<username>')
+@login_required
 def stream(username=None):
   template='stream.html'
   if username and username != current_user.username:
@@ -204,6 +207,7 @@ def stream(username=None):
     try:
        user = models.User.select().where(models.User.username**username).get()
     except models.DoesNotExist:
+       app.logger.info("No user named " + username + " was found in the database. A 404 error was raised.")
        abort(404)
     else:  
        stream=user.posts.limit(100)
@@ -222,6 +226,7 @@ def stream(username=None):
 # routing to each individual post
 
 @app.route('/post/<int:post_id>')
+@login_required
 def view_post(post_id, username=None):
   if username and username != current_user.username:
     user = models.User.select().where(models.User.username**username).get()
@@ -240,6 +245,7 @@ def follow(username):
   try:
       to_user = models.User.get(models.User.username**username)
   except models.DoesNotExist:
+      app.logger.info("No user named " + username + " was found in the database. A 404 error was raised.")
       abort(404)
   else:
        try:
@@ -264,6 +270,7 @@ def unfollow(username):
   try:
       to_user = models.User.get(models.User.username**username)
   except models.DoesNotExist:
+      app.logger.info("No user named " + username + " was found in the database. A 404 error was raised.")
       abort(404)
   else:
        try:
@@ -283,7 +290,7 @@ def unfollow(username):
 @app.route('/register', methods=('GET','POST'))
 def register():
   this_route = url_for('.register')
-  app.logger.info("Someone visited the Register page " + this_route)
+  app.logger.info("Anonymous user visited the Register page " + this_route)
   form = forms.RegisterForm()
   if form.validate_on_submit():
     flash("Congratulations, you have successfully registered!", "success")
@@ -292,8 +299,10 @@ def register():
       email=form.email.data,
       password=form.password.data
     )
+    app.logger.info("A new user was just added in the User table")
     return redirect(url_for('profile'))
-  return render_template('register.html', form=form) 
+  return render_template('register.html', form=form)
+
 
 
 # conditional routing to the login page if current user is not authorised otherwise
@@ -306,13 +315,14 @@ counter = 0
 def login():
   if models.Anonymous.username != current_user.username :
     flash("You are already logged in", "error")
+    app.logger.info(current_user.username + " tried to access the login page while authenticated.")
     return redirect(url_for('profile'))
   else:
     if counter == 3:
         return redirect(url_for('captcha'))
     else:
         this_route = url_for('.login')
-        app.logger.info("Someone visited the Login page " + this_route)
+        app.logger.info("Anonymous user visited the Login page " + this_route)
         form = forms.LoginForm()
         if form.validate_on_submit():
           increment()
@@ -323,6 +333,7 @@ def login():
                 return redirect(url_for('captcha'))
               else:
                 flash("Credentials submitted are not valid.", "error")
+              app.logger.info("User does not exist")
           else:
             if check_password_hash(user.password, form.password.data):
               login_user(user)
@@ -333,6 +344,7 @@ def login():
                 return redirect(url_for('captcha'))
               else:
                 flash("Credentials submitted are not valid.", "error")
+            app.logger.info("Credentials submitted are not valid.")
         return render_template('login.html', form=form )
 
 # function that increments the global variable counter
@@ -345,6 +357,7 @@ def increment():
 # function performing human verification to prevent brute force attacks
 @app.route('/human-verification', methods=['GET', 'POST'])
 def captcha():
+    app.logger.info("Maximum login attempts exceeded, human verification check is required.")
     global counter
     msg = ''
     showalert = False
@@ -432,7 +445,6 @@ def logs(app):
 @app.errorhandler(404)
 def not_found(error):
   return render_template('404.html'), 404
-
 
 # initialisation function
 

@@ -40,14 +40,16 @@ class RegisterForm(FlaskForm):
         message=("Username should be one word, letters, "
                 "numbers, and underscores only.")
            ), 
-        name_exists
+        name_exists,
+        Length(max=64, message="Your username must not exceed 64 characters")
     ])
    email = StringField(
       'Email...',
       validators=[
          DataRequired(),
          Email(),
-         email_exists
+         email_exists,
+         Length(max=254, message="Your email address must not exceed 254 characters")
     ])
    password = PasswordField(
     'Password...',
