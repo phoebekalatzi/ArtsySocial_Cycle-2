@@ -26,6 +26,7 @@ from flask.ext.bcrypt import check_password_hash
 from flask.ext.login import (LoginManager, login_user, logout_user,
                              login_required, current_user)
 
+
 import models
 import forms
 
@@ -81,6 +82,7 @@ def before_request():
   session.modified = True
 
 
+
 # to close the database connection after each request
 
 @app.after_request
@@ -91,7 +93,7 @@ def after_request(response):
   #  response.headers["Content-Security-Policy"] = "default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com  http://fonts.gstatic.com  http://fonts.googleapis.com ; \
   #                                             style-src 'self'  http://fonts.googleapis.com   https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com ;  \
   #                                             script-src 'self'  https://cdnjs.cloudflare.com https://www.gstatic.com/recaptcha/api2/r20171109115411/recaptcha__en.js https://www.google.com/recaptcha/api.js  "
-  response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+  response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains; preload"
   response.headers["Cache-Control"] = "post-check=0, pre-check=0, false, no-store, no-cache, must-revalidate"
   response.headers["Pragma"] = "no-cache"
   return response
@@ -335,8 +337,24 @@ def login():
               app.logger.info("User does not exist")
           else:
             if check_password_hash(user.password, form.password.data):
-              login_user(user)
+              login_user(user, remember = False)
+              try:
+                  models.TrackSessions.create(
+                      userID=g.user._get_current_object(),
+                      session=session.sid,
+                      Ip_address=request.remote_addr
+                  )
+              except models.IntegrityError:
+                  pass
+              else:
+                  pass
               flash("You've been logged in!", "success")
+              active_sessions = models.TrackSessions.select().where(models.TrackSessions.userID_id == 9)#g.user._get_current_object) #| (models.TrackSessions.Ip_address != request.remote_addr))
+              if active_sessions.count() == 2:
+                flash("You appear to have existing active sessions on remote IP addresses.", "error")
+                app.logger.info("Concurrent sessions have been found to be linked to the same email account: " + form.email.data)
+              else:
+                  pass
               return redirect(url_for('profile'))
             else:
               if counter == 3:
@@ -395,12 +413,17 @@ def checkRecaptcha(response, secretkey):
 def logout():
   this_route = url_for('.logout')
   app.logger.info( current_user.username + " requested to logout " + this_route)
+  try:
+    models.TrackSessions.get(session = session.sid).delete_instance()
+  except models.IntegrityError:
+      pass
+  else:
+      pass
   logout_user()
   flash("You've been logged out. Come back soon!","success")
   # to invalidate existing session after user logout
   session.clear()
   return redirect(url_for('login'))
-
 
 # parsing configuration details from an external file
 

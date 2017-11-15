@@ -100,7 +100,17 @@ class Relationship(Model):
           (('from_user','to_user'),True)
       )
 
+class TrackSessions(Model) :
+    timestamp = DateTimeField(default=datetime.datetime.now)
+    userID = ForeignKeyField(User)
+    session = CharField()
+    Ip_address = CharField()
+
+    class Meta:
+        database = DATABASE
+        order_by = ('-timestamp',)
+
 def initialize():
   DATABASE.get_conn()
-  DATABASE.create_tables([User,Post, Relationship],safe=True)
+  DATABASE.create_tables([User,Post, Relationship, TrackSessions],safe=True)
   DATABASE.close()
