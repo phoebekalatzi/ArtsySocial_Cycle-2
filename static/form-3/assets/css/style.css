@@ -8,6 +8,15 @@ body {
     text-align: center;
 }
 
+div.notification.error {
+    color: #8e1225;
+    background-color:#edb6be;
+    margin-left:1px;
+    margin-right:1px;
+    padding:1px;
+    font-size:12px;
+}
+
 strong { font-weight: 500; }
 
 a, a:hover, a:focus {
@@ -153,7 +162,8 @@ img { max-width: 100%; }
 }
 
 .form-bottom form .input-error {
-	border-color: #de615e;
+	border: 3px solid #de615e;
+
 }
 
 .social-login {

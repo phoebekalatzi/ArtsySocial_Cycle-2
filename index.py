@@ -1,8 +1,11 @@
 import configparser
 import logging
 import warnings
+
 from urllib.request import urlopen
 import json
+
+from functools import wraps
 
 # to avoid the generation of .pyc files
 import sys
@@ -99,10 +102,24 @@ def after_request(response):
   return response
 
 
+# setting up the Content-Length header as a decorator for our views
+def content_length_header(max_length):
+    def decorator(f):
+        @wraps(f)
+        def wrapper(*args, **kwargs):
+            cont_len = request.content_length
+            if cont_len is not None and cont_len > max_length:
+                abort(413)
+            return f(*args, **kwargs)
+        return wrapper
+    return decorator
+
+
 # routing to my landing page which is the portfolio section
 
 @app.route("/myprofile/<username>")
 @app.route("/myprofile")
+@content_length_header(3 * 1024 * 1024)
 @login_required
 def profile(username=None):
   template='portfolio.html'
@@ -128,6 +145,7 @@ def profile(username=None):
 
 @app.route("/about/<username>")
 @app.route("/about")
+@content_length_header(3 * 1024 * 1024)
 @login_required
 def about(username=None):
   template='about.html'
@@ -152,6 +170,7 @@ def about(username=None):
 # routing to the create a new post section
 
 @app.route("/new_post", methods=('GET','POST'))
+@content_length_header(3 * 1024 * 1024)
 @login_required
 def post(username=None):
   if username and username != current_user.username:
@@ -174,6 +193,7 @@ def post(username=None):
 
 # new redirect route after posting a new message
 @app.route("/message_posted")
+@content_length_header(3 * 1024 * 1024)
 @login_required
 def redirection(username=None):
   if username and username != current_user.username:
@@ -188,6 +208,7 @@ def redirection(username=None):
 # user is redirected to login page when is not authenticated or to his/her
 # personal profile page when authenticated
 @app.route("/")
+@content_length_header(3 * 1024 * 1024)
 def root(username=None):
   if models.Anonymous.username != current_user.username :
     return redirect(url_for('profile'))
@@ -199,6 +220,7 @@ def root(username=None):
 
 @app.route('/stream')
 @app.route('/stream/<username>')
+@content_length_header(3 * 1024 * 1024)
 @login_required
 def stream(username=None):
   template='stream.html'
@@ -227,6 +249,7 @@ def stream(username=None):
 # routing to each individual post
 
 @app.route('/post/<int:post_id>')
+@content_length_header(3 * 1024 * 1024)
 @login_required
 def view_post(post_id, username=None):
   if username and username != current_user.username:
@@ -241,6 +264,7 @@ def view_post(post_id, username=None):
 # function that adds one follower in the relationship table for the selected user
 
 @app.route('/follow/<username>')
+@content_length_header(3 * 1024 * 1024)
 @login_required
 def follow(username):
   try:
@@ -266,6 +290,7 @@ def follow(username):
 # the selected user
 
 @app.route('/unfollow/<username>')
+@content_length_header(3 * 1024 * 1024)
 @login_required
 def unfollow(username):
   try:
@@ -289,6 +314,7 @@ def unfollow(username):
 
 # routing to the register page
 @app.route('/register', methods=('GET','POST'))
+@content_length_header(3 * 1024 * 1024)
 def register():
   this_route = url_for('.register')
   app.logger.info("Anonymous user visited the Register page " + this_route)
@@ -313,6 +339,7 @@ def register():
 counter = 0
 
 @app.route('/login', methods=('GET','POST'))
+@content_length_header(3 * 1024 * 1024)
 def login():
   if models.Anonymous.username != current_user.username :
     flash("You are already logged in", "error")
@@ -388,6 +415,7 @@ def increment():
 
 # function performing human verification to prevent brute force attacks
 @app.route('/human-verification', methods=['GET', 'POST'])
+@content_length_header(3 * 1024 * 1024)
 def captcha():
     app.logger.info("Maximum login attempts exceeded, human verification check is required.")
     global counter
@@ -424,6 +452,7 @@ def checkRecaptcha(response, secretkey):
 # routing to the logout page which redirects the user to the login page
 
 @app.route('/logout')
+@content_length_header(3 * 1024 * 1024)
 @login_required
 def logout():
   this_route = url_for('.logout')

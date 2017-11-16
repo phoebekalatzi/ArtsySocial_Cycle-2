@@ -29,6 +29,10 @@ a.portfolio-link, a, a.active , a:active, a:focus {
   color:#ACAEE8;
 }
 
+p#not-reg a, p#not-reg a.active, p#not-reg a:active, p#not-reg a:focus {
+    color: white;
+}
+
 hr.star-light:after {
   background-color:#ACAEE8;
 }
