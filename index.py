@@ -349,10 +349,25 @@ def login():
               else:
                   pass
               flash("You've been logged in!", "success")
-              active_sessions = models.TrackSessions.select().where(models.TrackSessions.userID_id == 9)#g.user._get_current_object) #| (models.TrackSessions.Ip_address != request.remote_addr))
-              if active_sessions.count() == 2:
-                flash("You appear to have existing active sessions on remote IP addresses.", "error")
-                app.logger.info("Concurrent sessions have been found to be linked to the same email account: " + form.email.data)
+              active_sessions = models.TrackSessions.select().where\
+                  (models.TrackSessions.userID_id == g.user._get_current_object()
+                   and (models.TrackSessions.Ip_address != request.remote_addr))
+              if active_sessions.count() == 1:
+                flash("You appear to have an existing active session on a remote IP address.", "error")
+                app.logger.info("A second active session was found for the user: " + current_user.username)
+              elif active_sessions.count() >=2:
+                try:
+                   models.TrackSessions.delete().where(
+                       models.TrackSessions.userID_id == g.user._get_current_object()
+                       and (models.TrackSessions.Ip_address != request.remote_addr)
+                   ).execute()
+                except models.IntegrityError:
+                    pass
+                else:
+                    flash("You appear to have multiple active sessions on remote IP addresses. "
+                          "All your remote active sessions will be now destroyed", "error")
+                    app.logger.info("Concurrent sessions have been found to be linked to the user "
+                                    + current_user.username + ". All user's remote active sessions will be now destroyed")
               else:
                   pass
               return redirect(url_for('profile'))
