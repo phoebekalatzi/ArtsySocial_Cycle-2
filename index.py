@@ -42,6 +42,10 @@ app.secret_key = os.urandom(24)
 SITE_KEY = '6LcwIjgUAAAAAITHtx4ZdnYjga3km2PAqQpjsfSn'
 SECRET_KEY = '6LcwIjgUAAAAAPi6xUe8iQg_AaWIK-K8zLvVjLp9'
 
+CERT = r'C:\Users\phoeb\Documents\OpenSSL-Win64\bin\cert.pem'
+CERT_KEY = r'C:\Users\phoeb\Documents\OpenSSL-Win64\bin\key.pem'
+context = (CERT,CERT_KEY)
+
 #app.config['RECAPTCHA_PUBLIC_KEY'] = 'public'
 #app.config['RECAPTCHA_PRIVATE_KEY'] = 'private'
 
@@ -93,15 +97,15 @@ def after_request(response):
   g.db.close()
   response.headers["X-XSS-Protection"] = "1; mode=block"
   response.headers["X-Content-Type-Options"] = "nosniff"
-  #  response.headers["Content-Security-Policy"] = "default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com  http://fonts.gstatic.com  http://fonts.googleapis.com ; \
-  #                                             style-src 'self'  http://fonts.googleapis.com   https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com ;  \
-  #                                             script-src 'self'  https://cdnjs.cloudflare.com https://www.gstatic.com/recaptcha/api2/r20171109115411/recaptcha__en.js https://www.google.com/recaptcha/api.js  "
+  #response.headers["Content-Security-Policy"] = "default-src https: ; \
+  #                                             style-src * ;  \
+  #                                             script-src  * "
   response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains; preload"
   response.headers["Cache-Control"] = "post-check=0, pre-check=0, false, no-store, no-cache, must-revalidate"
   response.headers["Pragma"] = "no-cache"
   return response
 
-
+#https://cdnjs.cloudflare.com https://www.google.com/recaptcha/api.js https://www.gstatic.com/recaptcha/api2/r20171115120512/recaptcha__en.js
 # setting up the Content-Length header as a decorator for our views
 def content_length_header(max_length):
     def decorator(f):
@@ -534,5 +538,5 @@ if __name__ == "__main__":
   app.run(
            host = app.config['ip_address'],
            port = int(app.config['port']),
-           ssl_context = 'adhoc',
+           ssl_context = context,
            debug = app.config['DEBUG'])
