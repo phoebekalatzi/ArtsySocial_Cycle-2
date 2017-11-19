@@ -2,10 +2,144 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fc4252d-9c3e-483f-8bfe-c6bc470c11f7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/e1efadcdc395683820571bc5b606e860" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/004d3e6a1536bec577c7120af38a8f58" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/00f86cdf11515e5fba02423c11c41300" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/031afd0c10f10380204597c5a1cc1a4c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/04e5627b290078fb46ef68c65922bfc9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/056274a5820bc1237f1dd12e00568add" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/05a34d97ed08a46d0495d29ee8918390" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/0833eac660ab0173a8598696f0c609cc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/0886c5ca608e04eb62c3b9b03d80e18f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/0db09172d4ed2012811d4b72afaee534" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/0de92101b666f664abac16aaea238471" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/0f0761917f636a819ca21e4c7b3f09da" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/105ae6fee1e9c15ffd2a85c413e6803c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/106e1567bbb8492d2cb39ada50d9290d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/107bfa2f45f90746321017fe38a73cf1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/11d98d29cd86b958a0b67c2760bcf868" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/128e3fc983853feb0f20f41f1e4e34a4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/13fefec04eda21e465b8d20fc5d32798" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/14105de53d06b7f22a374f89fcac61f9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/1422f103cd994e83a3311ba8718451e1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/19e8c511c50378d3edd0752f591ecb12" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/1c310bac27fbff84d04be50821c604c1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/20391c87e2bde70f27cb11142cf889b3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/2273ec26554dd8e3ae8007d6a98701c1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/235d9921b0bbd60d11282393b82ce5af" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/2774571606ab410613cc5e3c268227fb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/27ceea4189b1d5e40d573737cce0b877" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/298d383be63bb2c033128c7ea9128b87" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/2c298db0a73571fbbdcabdde616dcb95" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/30f800ea7762cb153f24ed13aeeecfcd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/33cf6335f72c9755dafc792b480b6d83" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/344cd245b009b654aeb19e5f26774a2c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/346ea5e962358f2f944c2c700f36e5b3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/357b80e3d92b49b0a6a551a550220855" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/3594861cce002239650cbedb3ebd4412" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/371108fca464ddbe197d4b5779585ff9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/390fb246869f8a7bbd2f9388366fed0d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/3911fe62f76669bcfc680512674472b9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/39526ba570a1e3e0c7ec6a3043c6c02f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/3c5ab3a77a3b6ace069ad2183fa01832" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/3e49394f544458fdc288d43012b3d878" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/3fbdaa9d7cf038d30dfb979cdd492a62" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/413aa422fa59085c0c82fffd77d65ad5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/4299bb0bababe687a2bd239fa894839c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/46fda693479dfcac58a24ce21209c276" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/470864835a36668dc1be6dfb35f3e3db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/47c9186d23256427d0c1284112719c54" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/4a08e644cd82a874836e77812e63a1e1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/4a746e9511a810fc6a41af55edacb900" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/4af567325b04cc0d25db15e240c972dc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/4b7b8b68cdcb2c1a822f4da439065b2c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/4c29574b04702951a16609357099804a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/4c340b7ed2bb32a9562d6bd1ea5070e8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/4c7ac247b7818171af3d9a34c6dad6cf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/4ce5218983cbb45dfeef8507a2ccc8f4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/4d49fe457193e92e7f6b09fc357321f1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/4eb4426767aaf59e167304f757aa5c44" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/50eb48058610254fc93151c13c20edf3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/5168b43f2d3e2dd5a5e69a7362822d0e" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/52488f49759c56dd684e5695e945589a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/56cf99812359dc2153a4e5e0b6651a34" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/5b9373b3f68a629d87e512b8c47e80f0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/5c84fbb97368c57d518605531552e397" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/5dfaf16939989912c733fdaf28492e7d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/5eeb0b6ca000eadb13c56f371f5c6c3c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/5fe4c9e0ddf57a1b6b5a8e436daab6ae" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/6229bd171ccd584eb0e96d811842928c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/64fb9194bfa1184c664d796a61e0989e" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/6729d39620f425ced966e54016b3168c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/676a7831f64b713094d746d0f0a9de29" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/68db9030888738f3995bb38b5888a4d0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/6b130ebddf0a7fd316a6383b78e15d6c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/6c0c8a12d44ff8b0c3ad570c49220c71" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/732c836a062d188baaee719bec6691a2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/7339f35702c66df337733dd522ef7710" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/7d036d91c3fd9e8388ff10043ef2ca63" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/7eddda9080acfa1ca8f3ef2773121f6a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/7ee45bbeb1a070c07d33b3fa0856967d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/81ca130bb8dafcacf5289f4b51b0a9d6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/83e0c3fda36bd4a24f19637a712b658f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/84f100f43f712224dc4ab576535054d2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/84f587f81c2e2e394164bea29abb61f7" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/8630fd83316bc303693ab96830a17227" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/89af3e3d694e8e939c3e5c941dba3bef" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/8a497355a43a455f8083e31397848f03" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/8f1812060e600b025fbd049b3a2578ed" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/968992ea127b986663ec0c9d472990bb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/97a202d89f68b54dfaa577e895f197eb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/98ad171ffcc73e6cc7da4630547696b1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/9d2a27a91ede5c14b60298d5fbddc224" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/9e806f3061e319ff5c75958ce0af6f31" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/a01e1ae0aaa8b920f7b014ac0d744181" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/a4470c8489971c6488b42fe79b055ec9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/a4f5baefca133bd01ca5d8db9f77a849" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/aa67aa0160090c82da0c7a1863dcd04b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/ad9248029e61ab62fcffcabf456d0d3f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/ae2bb43e3ca9e3a4455f10e4db2c6484" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/af0c85b16b013b67ffdf07b9f3107669" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/af7003d245bb707820a7368aeca87b64" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/b015a2676fc4cfd3c28c5656a4f0c004" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/b031a94714130ff63a4e71715c17a0c5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/b35a738891d546fbdae0014654dac021" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/bb23af35902898453fe3c3fe04cebe71" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/bb6efb417d1f9537adc50c0526fb5e66" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/c227b3fc7c69ad1057932573e45b774d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/c421b5ae79f03fc78fb01d39bb6fe989" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/c43a493272ef210a3b3c54fffaa09d55" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/c62534f7f6bc6a32885b33fc292a7379" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/c93f7142687f7cd7d3a4982d8a3e3885" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/d40bef4603f616f5662ff97fe9bac83d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/d4e59038415df9e285188cbb3b87d643" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/d71f171cd23d06b9e813b8be100546f9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/d751194632fe80567d2b28cad8f019e4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/dc8dec5eeaf10ce2b766eb6e433a1abc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/dd8c88f0e1359f5a90210969c595e96c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/e07a7b127a1ed65cbb718f4e9147ab2b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/e0919d4575c6b3369034d10208289b85" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/e2c79b499cb72953dae78d63ca8b8b68" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/e80785b10234f4dccd08a1d0af6a7d53" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/ebb05a067afef8d7b94df58de4fcef0e" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/ec499425c39749b0b7936c6c6479ee03" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/ec80a8aa89971028842c6871d4e6e635" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/f1d718b75f19d20aeb73d39036c84b4a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/f251ef00890b46faf389303f1c553431" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/f59ed6a0b59f0373f73fcc4d72ed1542" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/f66905d5fd4e7fdff696b6677a6251d9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/f7d046cc138e3a393d109bc6bc8bfbf8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/f7f4cd673df050e2278b8003a3b63c09" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/f7f91a23f5e4ee223f5404118de27cad" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/f86bd82c3575aed80bcabe79e6177066" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/f953a8232780295338411ce8cd17256c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/fc47fc1c05becdc1209bf8729c5b5d35" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/fd18653abd07ac1441605d0ce8b7f69c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flask_session/ff9f245887484089498a5f8088f7e001" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/updated-social.db" afterPath="$PROJECT_DIR$/var/updated-social.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/etc/defaults.cfg" afterPath="$PROJECT_DIR$/etc/defaults.cfg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.py" afterPath="$PROJECT_DIR$/index.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/form-3/assets/css/style.css" afterPath="$PROJECT_DIR$/static/form-3/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/loggingapp.log" afterPath="$PROJECT_DIR$/var/loggingapp.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +154,8 @@
       <file leaf-file-name="index.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="99" column="80" lean-forward="false" selection-start-line="99" selection-start-column="80" selection-end-line="99" selection-end-column="80" />
+            <state relative-caret-position="-1748">
+              <caret line="307" column="34" lean-forward="false" selection-start-line="307" selection-start-column="34" selection-end-line="307" selection-end-column="34" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -29,31 +163,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/custom.css">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="423">
+              <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/form-3/assets/css/style.css">
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="post.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/post.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="357">
+              <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -63,37 +187,17 @@
         <entry file="file://$PROJECT_DIR$/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="41" />
+              <caret line="31" column="67" lean-forward="false" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="captcha.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/captcha.html">
+      <file leaf-file-name="defaults.cfg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/etc/defaults.cfg">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="portfolio.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/portfolio.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/layout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2686">
-              <caret line="158" column="20" lean-forward="false" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
+            <state relative-caret-position="68">
+              <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -110,12 +214,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>context</find>
-      <find>script</find>
-      <find>c</find>
-      <find>post.html</find>
-      <find>log</find>
-      <find>time</find>
       <find>session</find>
       <find>url_for</find>
       <find>if</find>
@@ -140,6 +238,12 @@
       <find>crossd</find>
       <find>content</find>
       <find>noti</find>
+      <find>#</find>
+      <find>cfg</find>
+      <find>loggin</find>
+      <find>debug</find>
+      <find>register</find>
+      <find>reg</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -161,19 +265,19 @@
         <option value="$PROJECT_DIR$/templates/captcha.html" />
         <option value="$PROJECT_DIR$/templates/layout2.html" />
         <option value="$PROJECT_DIR$/templates/post.html" />
-        <option value="$PROJECT_DIR$/etc/defaults.cfg" />
         <option value="$PROJECT_DIR$/var/loggingapp.log" />
-        <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/templates/layout.html" />
         <option value="$PROJECT_DIR$/static/form-3/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/etc/defaults.cfg" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/index.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="300" />
+    <option name="x" value="10" />
     <option name="y" value="20" />
-    <option name="width" value="714" />
+    <option name="width" value="1004" />
     <option name="height" value="688" />
   </component>
   <component name="ProjectView">
@@ -208,38 +312,6 @@
             <path>
               <item name="ArtsySocial-Cycle2" type="b2602c69:ProjectViewProjectNode" />
               <item name="ArtsySocial-Cycle2" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ArtsySocial-Cycle2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArtsySocial-Cycle2" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ArtsySocial-Cycle2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArtsySocial-Cycle2" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="form-3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ArtsySocial-Cycle2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArtsySocial-Cycle2" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="form-3" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ArtsySocial-Cycle2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArtsySocial-Cycle2" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="form-3" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ArtsySocial-Cycle2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArtsySocial-Cycle2" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -254,7 +326,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ArtsySocial" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -312,7 +384,7 @@
     <frame x="-8" y="-8" width="1040" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08886719" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22949219" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -376,6 +448,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -414,6 +487,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="35" column="18" lean-forward="false" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -452,6 +526,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="35" column="18" lean-forward="true" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -599,13 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5210">
@@ -641,71 +709,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="6" lean-forward="false" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/macros.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="56" lean-forward="true" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/var/loggingapp.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/post.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/portfolio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/captcha.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2686">
-          <caret line="158" column="20" lean-forward="false" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/defaults.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -725,10 +732,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/captcha.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/portfolio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="158" column="20" lean-forward="false" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="31" column="67" lean-forward="false" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/macros.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="56" lean-forward="true" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/defaults.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="99" column="80" lean-forward="false" selection-start-line="99" selection-start-column="80" selection-end-line="99" selection-end-column="80" />
+        <state relative-caret-position="-1748">
+          <caret line="307" column="34" lean-forward="false" selection-start-line="307" selection-start-column="34" selection-end-line="307" selection-end-column="34" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

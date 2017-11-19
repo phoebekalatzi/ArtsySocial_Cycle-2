@@ -12,14 +12,11 @@ import sys
 
 sys.dont_write_bytecode = True
 
-# necessary import to ignore any ExtdepricationWarning warnings for external
-# libraries
-
+# necessary import to ignore any ExtdepricationWarning warnings for external libraries
 from flask.exthook import ExtDeprecationWarning
 warnings.simplefilter('ignore', ExtDeprecationWarning)
 
 # other essential imports
-from flask_wtf.csrf import CSRFProtect
 
 from datetime import timedelta
 from logging.handlers import RotatingFileHandler
@@ -47,21 +44,11 @@ CERT = r'C:\Users\phoeb\Documents\OpenSSL-Win64\bin\cert.pem'
 CERT_KEY = r'C:\Users\phoeb\Documents\OpenSSL-Win64\bin\key.pem'
 context = (CERT,CERT_KEY)
 
-#app.config['RECAPTCHA_PUBLIC_KEY'] = 'public'
-#app.config['RECAPTCHA_PRIVATE_KEY'] = 'private'
-
-#app.WTF_CSRF_SECRET_KEY = '-\x9f\xcd\x89\x080\x88qH(\x89\xc0\x94-\xb1\xb4<m\xce\x80\xec\xfa\xac\xfb'
-
-#csrf = CSRFProtect()
 sess = Session()
 
-#app.config['WTF_CSRF_SSL_STRICT'] = True
-#app.config['WTF_CSRF_SECRET_KEY'] = base64.b64encode(urandom(128))
 app.config['SESSION_COOKIE_NAME'] = 'artscl'
 app.config['SESSION_COOKIE_PATH'] = '/'
-
 app.config['SESSION_COOKIE_SECURE'] = True
-
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 
 login_manager = LoginManager()
@@ -83,11 +70,8 @@ def before_request():
   g.db = models.DATABASE
   g.db.get_conn()
   g.user = current_user
-  # to expire session after 30 minutes
   app.permanent_session_lifetime = timedelta(minutes=30)
-  # to renew the session at each request so that sessions time out only after inactivity
   session.modified = True
-
 
 # to close the database connection after each request
 @app.after_request
@@ -103,15 +87,7 @@ def after_request(response):
   response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains; preload"
   response.headers["Cache-Control"] = "post-check=0, pre-check=0, false, no-store, no-cache, must-revalidate"
   response.headers["Pragma"] = "no-cache"
- # response.headers['Access-Control-Allow-Origin'] = 'cdnjs.cloudflare.com'
- # response.headers["Access-Control-Allow-Methods"] = "GET, POST"
   return response
-
-#default-src 'self' https: google.com gstatic.com www.gstatic.com www.google-analytics.com ajax.googleapis.com; \
-#                                               style-src 'self' https: google.com gstatic.com www.gstatic.com www.google-analytics.com ajax.googleapis.com ;  \
-#                                               script-src 'self' google.com https: www.google.com gstatic.com www.gstatic.com" \
-#                                                "www.google-analytics.com ajax.googleapis.com ; \
-#                                               font-src https:; img-src https:; child-src https:
 
 # setting up the Content-Length header as a decorator for our views
 def content_length_header(max_length):
@@ -127,7 +103,6 @@ def content_length_header(max_length):
 
 
 # routing to my landing page which is the portfolio section
-
 @app.route("/myprofile/<username>")
 @app.route("/myprofile")
 @content_length_header(3 * 1024 * 1024)
@@ -151,7 +126,6 @@ def profile(username=None):
 
 
 # routing to the about section
-
 @app.route("/about/<username>")
 @app.route("/about")
 @content_length_header(3 * 1024 * 1024)
@@ -324,17 +298,15 @@ def register():
   app.logger.info("Anonymous user visited the Register page " + this_route)
   form = forms.RegisterForm()
   if form.validate_on_submit():
-    flash("Congratulations, you have successfully registered!", "success")
     models.User.create_user(
       username=form.username.data,
       email=form.email.data,
       password=form.password.data
     )
+    flash("Congratulations, you have successfully registered!", "success")
     app.logger.info("A new user was just added in the User table")
-    return redirect(url_for('profile'))
+    return redirect(url_for('login'))
   return render_template('register.html', form=form)
-
-
 
 # conditional routing to the login page if current user is not authorised otherwise
 # redirection to their personal profile
@@ -468,7 +440,6 @@ def logout():
       pass
   logout_user()
   flash("You've been logged out. Come back soon!","success")
-  # to invalidate existing session after user logout
   session.clear()
   return redirect(url_for('login'))
 
@@ -479,12 +450,10 @@ def init (app):
     config_location = "etc/defaults.cfg"
     config.read(config_location)
 
-    app.config['DEBUG'] = config.get("config", "debug")
+    app.config['debug'] = config.get("config", "debug")
     app.config['ip_address'] = config.get("config", "ip_address")
     app.config['port'] = config.get("config", "port")
     app.config['url'] = config.get("config", "url")
-    # added ssl_context argument directly into the app.run function
-    #  app.config['ssl_context'] = config.get("config","ssl_context")
 
     app.config['log_file'] = config.get("logging", "name")
     app.config['log_location'] = config.get("logging", "location")
@@ -518,7 +487,6 @@ if __name__ == "__main__":
                        'https://www.gstatic.com','cdnjs.cloudflare.com'))
   app.config['SESSION_TYPE'] = 'filesystem'
   sess.init_app(app)
-  # csrf.init_app(app)
   logs(app)
   models.initialize()
   try:
@@ -535,4 +503,4 @@ if __name__ == "__main__":
            host = app.config['ip_address'],
            port = int(app.config['port']),
            ssl_context = context,
-           debug = app.config['DEBUG'])
+           debug = False)
