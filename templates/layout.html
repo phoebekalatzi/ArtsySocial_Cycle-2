@@ -154,8 +154,9 @@
           {% if messages %}
           <div class=flashes>
              {% for message in messages %}
-                <p>{{ message }}</p>
+                <p>{{ message }} </p>
              {% endfor %}
+           {% if terminate=='on' %}    <p>Hey!</p>   {% endif %}
           </div>
           {% endif %}
       {% endwith %}

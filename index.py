@@ -5,7 +5,7 @@ import warnings
 from urllib.request import urlopen
 import json
 
-from functools import wraps
+from functools import wraps, update_wrapper
 
 # to avoid the generation of .pyc files
 import sys
@@ -23,11 +23,12 @@ from flask_wtf.csrf import CSRFProtect
 
 from datetime import timedelta
 from logging.handlers import RotatingFileHandler
-from flask import (Flask, url_for, g, render_template, flash, redirect, abort, session, request)
+from flask import (Flask, url_for, g, render_template, flash, redirect, abort, session, request, make_response,current_app)
 from flask.ext.session import Session
 from flask.ext.bcrypt import check_password_hash
 from flask.ext.login import (LoginManager, login_user, logout_user,
                              login_required, current_user)
+from flask_cors import CORS
 
 
 import models
@@ -77,7 +78,6 @@ def load_user(userid):
     return None
 
 # to connect to the database before each request
-
 @app.before_request
 def before_request():
   g.db = models.DATABASE
@@ -89,9 +89,7 @@ def before_request():
   session.modified = True
 
 
-
 # to close the database connection after each request
-
 @app.after_request
 def after_request(response):
   g.db.close()
@@ -103,9 +101,10 @@ def after_request(response):
   response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains; preload"
   response.headers["Cache-Control"] = "post-check=0, pre-check=0, false, no-store, no-cache, must-revalidate"
   response.headers["Pragma"] = "no-cache"
+ # response.headers['Access-Control-Allow-Origin'] = 'cdnjs.cloudflare.com'
+ # response.headers["Access-Control-Allow-Methods"] = "GET, POST"
   return response
 
-#https://cdnjs.cloudflare.com https://www.google.com/recaptcha/api.js https://www.gstatic.com/recaptcha/api2/r20171115120512/recaptcha__en.js
 # setting up the Content-Length header as a decorator for our views
 def content_length_header(max_length):
     def decorator(f):
@@ -136,13 +135,11 @@ def profile(username=None):
        user=current_user
        this_route = url_for('.profile')
        app.logger.info( current_user.username  + " viewed his/her personal Profile page " + this_route)
-    if username:
-       template = 'portfolio.html'
   except models.DoesNotExist:
       app.logger.info("No user named " + username + " was found in the database. A 404 error was raised.")
       abort(404)
-  else:    
-      return render_template(template, user=user)  
+  else:
+      return render_template(template, user=user)
 
 
 # routing to the about section
@@ -172,7 +169,6 @@ def about(username=None):
 
 
 # routing to the create a new post section
-
 @app.route("/new_post", methods=('GET','POST'))
 @content_length_header(3 * 1024 * 1024)
 @login_required
@@ -221,7 +217,6 @@ def root(username=None):
 
 
 # routing to the posts stream section
-
 @app.route('/stream')
 @app.route('/stream/<username>')
 @content_length_header(3 * 1024 * 1024)
@@ -251,7 +246,6 @@ def stream(username=None):
 
 
 # routing to each individual post
-
 @app.route('/post/<int:post_id>')
 @content_length_header(3 * 1024 * 1024)
 @login_required
@@ -266,7 +260,6 @@ def view_post(post_id, username=None):
   return render_template('stream.html', stream=posts, user=user)
 
 # function that adds one follower in the relationship table for the selected user
-
 @app.route('/follow/<username>')
 @content_length_header(3 * 1024 * 1024)
 @login_required
@@ -292,7 +285,6 @@ def follow(username):
 
 # function that deletes the follower instance from the relationship table for
 # the selected user
-
 @app.route('/unfollow/<username>')
 @content_length_header(3 * 1024 * 1024)
 @login_required
@@ -454,7 +446,6 @@ def checkRecaptcha(response, secretkey):
         return False
 
 # routing to the logout page which redirects the user to the login page
-
 @app.route('/logout')
 @content_length_header(3 * 1024 * 1024)
 @login_required
@@ -474,7 +465,6 @@ def logout():
   return redirect(url_for('login'))
 
 # parsing configuration details from an external file
-
 def init (app):
   config = configparser.ConfigParser()
   try:
@@ -495,9 +485,7 @@ def init (app):
   except:
     print ("Could not read configuration file from: ") , config_location
 
-
-# setting up a logging feature to record action logs into a text file    
-
+# setting up a logging feature to record action logs into a text file
 def logs(app):
   log_pathname = app.config['log_location']+ app.config['log_file']
   file_handler = RotatingFileHandler(log_pathname, maxBytes=1024*1024*10 ,
@@ -511,15 +499,15 @@ def logs(app):
 
 # error handling mechanism to catch all the 404 errors and to redirect the user to
 # a custom 404 page
-
 @app.errorhandler(404)
 def not_found(error):
   return render_template('404.html'), 404
 
 # initialisation function
-
 if __name__ == "__main__":
   init(app)
+  CORS(app, origins = ('https://localhost:5000','https://www.google.com',
+                       'https://www.gstatic.com','cdnjs.cloudflare.com'))
   app.config['SESSION_TYPE'] = 'filesystem'
   sess.init_app(app)
   # csrf.init_app(app)
