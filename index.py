@@ -95,15 +95,23 @@ def after_request(response):
   g.db.close()
   response.headers["X-XSS-Protection"] = "1; mode=block"
   response.headers["X-Content-Type-Options"] = "nosniff"
-  #response.headers["Content-Security-Policy"] = "default-src https: ; \
-  #                                             style-src * ;  \
-  #                                             script-src  * "
+  response.headers["Content-Security-Policy"] = "default-src https: ; \
+                                               style-src 'unsafe-inline' *  ;  \
+                                               script-src 'self' https://www.gstatic.com/recaptcha/ " \
+                                                "https://www.google.com/recaptcha/; " \
+                                               "child-src https://www.google.com/recaptcha/"
   response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains; preload"
   response.headers["Cache-Control"] = "post-check=0, pre-check=0, false, no-store, no-cache, must-revalidate"
   response.headers["Pragma"] = "no-cache"
  # response.headers['Access-Control-Allow-Origin'] = 'cdnjs.cloudflare.com'
  # response.headers["Access-Control-Allow-Methods"] = "GET, POST"
   return response
+
+#default-src 'self' https: google.com gstatic.com www.gstatic.com www.google-analytics.com ajax.googleapis.com; \
+#                                               style-src 'self' https: google.com gstatic.com www.gstatic.com www.google-analytics.com ajax.googleapis.com ;  \
+#                                               script-src 'self' google.com https: www.google.com gstatic.com www.gstatic.com" \
+#                                                "www.google-analytics.com ajax.googleapis.com ; \
+#                                               font-src https:; img-src https:; child-src https:
 
 # setting up the Content-Length header as a decorator for our views
 def content_length_header(max_length):

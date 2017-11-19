@@ -14,7 +14,8 @@ div.notification.error {
     margin-left:1px;
     margin-right:1px;
     padding:1px;
-    font-size:12px;
+    font-size:17px;
+    font-weight:-300;
 }
 
 strong { font-weight: 500; }
