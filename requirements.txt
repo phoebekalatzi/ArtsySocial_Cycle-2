@@ -7,7 +7,7 @@ click==6.7
 cryptography==2.1.3
 Flask==0.12.2
 Flask-Bcrypt==0.7.1
-Flask-Cors==3.0.3
+Flask-Cors==3.0.9
 flask-crossdomain==0.1
 Flask-Login==0.4.0
 Flask-ReCaptcha==0.4.2
