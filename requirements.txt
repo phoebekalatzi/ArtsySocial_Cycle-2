@@ -23,7 +23,7 @@ pyOpenSSL==17.3.0
 redis==2.10.6
 requests==2.18.4
 six==1.11.0
-urllib3==1.22
+urllib3==1.26.5
 vulture==0.26
 Werkzeug==0.12.2
 WTForms==2.1
